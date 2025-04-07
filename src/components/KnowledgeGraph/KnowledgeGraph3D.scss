@@ -1,0 +1,18 @@
+.knowledge-graph-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.node-label {
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  pointer-events: auto;
+  transition: all 0.2s ease;
+}
+
+.node-label:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}

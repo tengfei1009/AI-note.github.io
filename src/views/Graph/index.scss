@@ -1,0 +1,338 @@
+.graph-page {
+  height: 100%;
+  padding: 16px;
+  background-color: #f5f7fa;
+  
+  .graph-card {
+    height: calc(100vh - 32px);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    
+    .ant-card-body {
+      height: 100%;
+      padding: 0;
+      position: relative;
+    }
+  }
+  
+  .graph-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    z-index: 10;
+    
+    .search-container {
+      display: flex;
+      align-items: center;
+      
+      .ant-input {
+        border-radius: 4px;
+        &:focus {
+          box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+        }
+      }
+      
+      .ant-select {
+        margin-left: 8px;
+      }
+      
+      .ant-btn {
+        margin-left: 8px;
+      }
+    }
+    
+    .action-container, .view-container, .node-actions {
+      .ant-btn {
+        margin-left: 4px;
+        border-radius: 4px;
+        transition: all 0.3s;
+        
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+  
+  // 树信息栏样式
+  .tree-info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    z-index: 5;
+    
+    .tree-tag {
+      font-size: 16px;
+      padding: 4px 12px;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      background-color: rgba(24, 144, 255, 0.9);
+      color: white;
+      font-weight: 500;
+      margin: 0;
+      position: static;
+      transform: none;
+    }
+    
+    .tree-list-btn {
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: static;
+      
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+  
+  .graph-content {
+    height: calc(100% - 104px); // 调整高度，减去工具栏和树信息栏的高度
+    position: relative;
+    
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      
+      p {
+        margin-top: 16px;
+        color: #8c8c8c;
+        font-size: 16px;
+      }
+    }
+    
+    .graph-container {
+      width: 100%;
+      height: 100%;
+      background-color: #fafafa;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+  }
+  
+  // 节点样式
+  .node-card {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+    
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    
+    .node-header {
+      padding: 12px 16px;
+      background-color: #e6f7ff;
+      border-bottom: 1px solid #91d5ff;
+      
+      h3 {
+        margin: 0;
+        color: #1890ff;
+      }
+    }
+    
+    .node-content {
+      padding: 16px;
+      
+      p {
+        margin-bottom: 8px;
+      }
+      
+      .mastery-level {
+        margin-top: 16px;
+        
+        .ant-progress-text {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  
+  // 删除这两个样式块，因为它们已经被整合到.tree-info-bar中
+  
+  // 知识树标签样式
+  .tree-tag {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(24, 144, 255, 0.9);
+    color: white;
+    font-weight: 500;
+  }
+  
+  // 知识树列表按钮样式
+  .tree-list-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  // 测评系统样式
+  .evaluation-system {
+    .question-card {
+      margin-bottom: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      
+      .ant-card-head {
+        background-color: #f0f7ff;
+        border-bottom: 1px solid #d6e8ff;
+      }
+      
+      .question-options {
+        margin-top: 16px;
+      }
+      
+      .question-actions {
+        margin-top: 24px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    
+    .result-card {
+      border-radius: 8px;
+      overflow: hidden;
+      
+      .result-header {
+        padding: 16px;
+        background-color: #f6ffed;
+        border-bottom: 1px solid #b7eb8f;
+        
+        .score {
+          font-size: 24px;
+          font-weight: bold;
+          color: #52c41a;
+        }
+      }
+      
+      .result-content {
+        padding: 16px;
+        
+        h4 {
+          margin-top: 16px;
+          margin-bottom: 8px;
+          color: #262626;
+        }
+        
+        ul {
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+  
+  // 知识树列表模态框样式
+  .tree-list-modal {
+    .tree-card {
+      margin-bottom: 16px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      border: 1px solid #f0f0f0;
+      
+      &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-color: #d9d9d9;
+      }
+      
+      &.current {
+        border-color: #1890ff;
+        background-color: #e6f7ff;
+      }
+      
+      .tree-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #f0f0f0;
+        
+        h3 {
+          margin: 0;
+          color: #262626;
+        }
+        
+        .tree-actions {
+          .ant-btn {
+            margin-left: 8px;
+          }
+        }
+      }
+      
+      .tree-card-content {
+        padding: 12px 16px;
+        
+        p {
+          margin-bottom: 8px;
+          color: #595959;
+        }
+        
+        .tree-stats {
+          display: flex;
+          margin-top: 8px;
+          
+          .stat-item {
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            
+            .anticon {
+              margin-right: 4px;
+              color: #1890ff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// G6 图样式覆盖
+:global {
+  .g6-component-tooltip {
+    border: none !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    padding: 8px 12px !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    
+    p {
+      margin: 4px 0 !important;
+    }
+  }
+  
+  .g6-minimap {
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  }
+}

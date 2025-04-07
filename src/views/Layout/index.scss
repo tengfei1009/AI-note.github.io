@@ -1,0 +1,113 @@
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-sider {
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo-container {
+  height: 64px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0;
+}
+
+.logo {
+  height: 32px;
+  margin-right: 8px;
+}
+
+.logo-text {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.app-header {
+  padding: 0 16px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.trigger {
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 0 24px;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.breadcrumb {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 16px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.notification-badge {
+  margin-right: 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 8px;
+  height: auto;
+}
+
+.username {
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.app-content {
+  margin: 24px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 4px;
+  min-height: 280px;
+  overflow: auto;
+}
+
+.notification-item {
+  width: 300px;
+  padding: 8px 0;
+}
+
+.notification-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.notification-content {
+  color: rgba(0, 0, 0, 0.65);
+  margin-bottom: 4px;
+}
+
+.notification-time {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+}
